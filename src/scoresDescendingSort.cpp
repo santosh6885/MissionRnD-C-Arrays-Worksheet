@@ -19,7 +19,35 @@ struct student {
 	char name[10];
 	int score;
 };
+void swap1(int *num1, int *num2);
+void swap2(char *str1, char *str2);
 
 void * scoresDescendingSort(struct student *students, int len) {
-	return NULL;
+	int i,j;
+	if (students == NULL || len <= 0)
+		return NULL;
+	for (i = 0; i < len; i++){
+		for (j = 0; j < len - i - 1; j++){
+			if (((students + j)->score) < ((students + j + 1)->score)){
+				swap1(&((students + j)->score), &((students + j + 1)->score));
+				swap2((students + i)->name, (students + i + 1)->name);
+
+
+			}
+		}
+	}
+
+
+	//return NULL;
+}
+void swap1(int *num1,int *num2){
+	int temp = *num1;
+	*num1 = *num2;
+	*num2 = temp;
+
+}
+void swap2(char *s1, char *s2){
+	char *temp = s1;
+	s1 = s2;
+	s2 = temp;
 }
